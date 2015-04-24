@@ -1,0 +1,6 @@
+<%= render 'shared/page_title', title: 'Edit Recipe' %>
+<%= render 'shared/errors', obj: @recipe %>
+<%= render 'form' %>
+<div class='container'>
+  <%= link_to 'Back', recipe_path(@recipe) %> 
+</div>
