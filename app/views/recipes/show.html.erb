@@ -6,6 +6,9 @@
       <p>
         <h5>Brought to you by: <%= @recipe.chef.chefname %></h5>
       </p>
+      <p>
+        Created <%= time_ago_in_words(@recipe.created_at) %> ago
+      </p>
     </div>
     <div class="col-md-8">
       <h3><%= @recipe.description %></h3>
@@ -17,6 +20,14 @@
           <strong>Steps:</strong>
           <p>
             <%= simple_format(@recipe.summary)%>
+            <div class = "pull-right">
+              <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
+                <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= @recipe.thumbs_up_total %>
+              <% end %> &nbsp&nbsp&nbsp&nbsp
+              <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
+                <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= @recipe.thumbs_down_total %>
+              <% end %>
+            </div>
           </p>
         </p>
       </div>
