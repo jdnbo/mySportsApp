@@ -6,27 +6,27 @@
     This is the home page for your mySports page
   </h2>
   
-  <%= link_to "Sign up now!", "", class: "btn btn-lg btn-success" %>
+  <%= link_to "Sign up now!", register_path, class: "btn btn-lg btn-success" %>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-lg-4"> <!--in bootstrap it separates the page into 12 columns - we therefore need 4 to make 3 equal parts on the bottom-->
       <h3 class="center">
-        View sports pages as guest user
+        View sports pages as guest
       </h3>
       <h2 class="center">Browse and view athletes as a guest and sign up later</h2>
       <p class="center"><%= link_to "Browse Athletes", recipes_path, class: "btn btn-sm btn-warning"%></p>
     </div>
     <div class="col-lg-4"> <!--in bootstrap it separates the page into 12 columns - we therefore need 4 to make 3 equal parts on the bottom-->
       <h3 class="center">
-        View sports pages as guest user
+        Log in to your account
       </h3>
-      <h2 class="center">Browse and view athletes as a guest and sign up later</h2>
-      <p class="center"><%= link_to "Browse Athletes", recipes_path, class: "btn btn-sm btn-warning"%></p>
+      <h2 class="center">Add recipes, update current ones or visit and like other chefs recipes!</h2>
+      <p class="center"><%= link_to "Log In", login_path, class: "btn btn-sm btn-warning"%></p>
     </div>
     <div class="col-lg-4"> <!--in bootstrap it separates the page into 12 columns - we therefore need 4 to make 3 equal parts on the bottom-->
       <h3 class="center">
-        View sports pages as guest user
+        View sports pages as guest
       </h3>
       <h2 class="center">Browse and view athletes as a guest and sign up later</h2>
       <p class="center"><%= link_to "Browse Athletes", recipes_path, class: "btn btn-sm btn-warning"%></p>

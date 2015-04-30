@@ -1,0 +1,28 @@
+<div class="container">
+
+  <%= render 'shared/page_title', title: 'All Chefs' %>
+  
+  <div class="row center">
+    <%= will_paginate %>
+  </div>
+  
+      <% @chefs.each do |chef| %>
+      
+      <div class="row center">
+      
+        <div class = "col-md-4 col-md-offset-4">
+          <section class="chef_info center"><!--this is an area for the gravatar-->
+            <%= link_to gravatar_for(chef, size: 200), chef_path(chef) %>
+            <h5>Chef name: <%= chef.chefname %></h5>
+          </section>
+        </div>
+      </div>
+      <hr/>
+      
+      <% end %>
+    
+  <div class="row center">
+    <%= will_paginate %>
+  </div>
+  
+</div>

@@ -2,7 +2,7 @@
   <%= render 'shared/page_title', title: @recipe.title %>
   <div class="row">
     <div class="col-md-4 pull-right center">
-      <%= gravatar_for @recipe.chef, size: 200 %>
+      <%= link_to gravatar_for(@recipe.chef, size: 200), chef_path(@recipe.chef) %>
       <p>
         <h5>Brought to you by: <%= @recipe.chef.chefname %></h5>
       </p>
@@ -20,14 +20,13 @@
           <strong>Steps:</strong>
           <p>
             <%= simple_format(@recipe.summary)%>
-            <div class = "pull-right">
+              <div class = "pull-right">
               <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
                 <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= @recipe.thumbs_up_total %>
               <% end %> &nbsp&nbsp&nbsp&nbsp
               <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
                 <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= @recipe.thumbs_down_total %>
               <% end %>
-            </div>
           </p>
         </p>
       </div>
@@ -35,7 +34,9 @@
         <table style='width:100%'>
           <tr>
             <th><h5><%= link_to 'Return to Recipes Listing', recipes_path %></h5></th>
-            <th><h5 style='text-align:right'><%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %></h5></th>
+            <% if current_user == @recipe.chef %>
+              <th><h5 style='text-align:right'><%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %></h5></th>
+            <% end %>
           </tr>
         </table>
       </p>

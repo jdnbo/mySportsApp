@@ -1,0 +1,8 @@
+<div class="container">
+  <%= render 'shared/page_title', title: 'Edit your account' %>
+  <%= render 'shared/errors', obj: @chef %>
+  <%= render 'form' %>
+  <div class="row center", style="font-size:30px">
+    <%= link_to 'Back', recipes_path %> <!--change this to redirect to chef_path(@chef) when the show page is created -->
+  </div>
+</div>
