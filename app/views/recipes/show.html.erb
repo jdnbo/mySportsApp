@@ -20,6 +20,12 @@
           <strong>Steps:</strong>
           <p>
             <%= simple_format(@recipe.summary)%>
+            <p>
+              <small>Styles:</small> <%= render @recipe.styles %>
+            </p>
+            <p>
+              <small>Ingredients:</small> <%= render @recipe.ingredients %>
+            </p>
               <div class = "pull-right">
               <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
                 <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= @recipe.thumbs_up_total %>

@@ -29,6 +29,12 @@
         <h4><%= link_to recipe.title, recipe_path(recipe)%></h4>
         <p><%= recipe.description %></p>
         <p>
+          <small>Styles:</small> <%= render recipe.styles %>
+        </p>
+        <p>
+          <small>Ingredients:</small> <%= render recipe.ingredients %>
+        </p>
+        <p>
           <span class='quiet'><small> Updated <%= time_ago_in_words(recipe.updated_at) %> ago </small></span>
         </p>
         <div class = "pull-right">
