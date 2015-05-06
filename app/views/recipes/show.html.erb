@@ -30,13 +30,13 @@
                 <small>Ingredients:</small> <%= render @recipe.ingredients %>
               </p>
             <% end %>
-              <div class = "pull-right">
-              <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
-                <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= @recipe.thumbs_up_total %>
-              <% end %> &nbsp&nbsp&nbsp&nbsp
-              <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
-                <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= @recipe.thumbs_down_total %>
-              <% end %>
+            <div class = "pull-right">
+            <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
+              <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= @recipe.thumbs_up_total %>
+            <% end %> &nbsp&nbsp&nbsp&nbsp
+            <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
+              <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= @recipe.thumbs_down_total %>
+            <% end %>
           </p>
         </p>
       </div>
@@ -44,8 +44,9 @@
         <table style='width:100%'>
           <tr>
             <th><h5><%= link_to 'Return to Recipes Listing', recipes_path %></h5></th>
-            <% if current_user == @recipe.chef %>
-              <th><h5 style='text-align:right'><%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %></h5></th>
+            <% if logged_in? and (current_user == @recipe.chef or current_user.admin?) %>
+              <th><h5><%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %></h5></th>
+              <th><h5 class="pull-right"><%= link_to 'Delete Recipe', @recipe, method: :delete, data: { confirm: "Are you sure" } %></h5></th>
             <% end %>
           </tr>
         </table>
